@@ -1,4 +1,5 @@
 
+    
 //console.log(window);
 //alert(1);
 //single element selector
@@ -48,7 +49,10 @@ const nameInput =document.querySelector('#name');
 const emailInput =document.querySelector('#email');
 const msg =document.querySelector('.msg');
 const userList=document.querySelector('#users');
+const delet =document.getElementById("users");
 myForm.addEventListener('submit',onsubmit);
+
+
 function onsubmit(e){
     e.preventDefault();
     let name = document.getElementById('name');
@@ -64,23 +68,38 @@ function onsubmit(e){
    li.className ='items';
    const iTEMMS=document.createTextNode(nameA);
    const emailB =document.createTextNode(" email= "+emailA);
+   const deletebtn =document.createElement('button');
+
+    
+     
+   deletebtn.appendChild(document.createTextNode('Delete'));
+   
+
 
    li.appendChild(iTEMMS);
    li.appendChild(emailB);
-   users.appendChild(li);
    
-
+   
+ delet.onclick=(e) => {
+    
+    const parent = document.getElementById('users');
+    parent.removeChild(li);
+    
+    localStorage.removeItem("email1");
     
 
-}
-//localStorage.setItem('Name','harry');
-//localStorage.setItem('Name2','Abhi');
+    
+ }
+    users.appendChild(li);
+   li.appendChild(deletebtn);
 
-//let Name=localStorage.getItem('Name');
-//console.log(Name);
-//sessionStorage.setItem('name2','sam');
+    
+        
+        
 
 
 
 
+
+};
 
