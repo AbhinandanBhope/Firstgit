@@ -50,7 +50,9 @@ const emailInput =document.querySelector('#email');
 const msg =document.querySelector('.msg');
 const userList=document.querySelector('#users');
 const delet =document.getElementById("users");
+const edit =document.getElementById("users");
 myForm.addEventListener('submit',onsubmit);
+
 
 
 function onsubmit(e){
@@ -70,6 +72,15 @@ function onsubmit(e){
    const emailB =document.createTextNode(" email= "+emailA);
    const deletebtn =document.createElement('button');
 
+   
+   
+   
+   
+
+
+   const editbtn = document.createElement('button');
+   editbtn.appendChild(document.createTextNode('Edit'));
+
     
      
    deletebtn.appendChild(document.createTextNode('Delete'));
@@ -80,18 +91,47 @@ function onsubmit(e){
    li.appendChild(emailB);
    
    
+   
  delet.onclick=(e) => {
+    console.log('hhh');
+    
+
     
     const parent = document.getElementById('users');
     parent.removeChild(li);
+
+    
+    
+
     
     localStorage.removeItem("email1");
+    localStorage.removeItem("name");
+
     
 
     
  }
+
+ edit.onclick=() => {
+
+
+    const parent = document.getElementById('users');
+    parent.removeChild(li);
+    
+
+    
+    localStorage.removeItem("email1");
+    localStorage.removeItem("name");
+
+
+
+ }
+ 
     users.appendChild(li);
    li.appendChild(deletebtn);
+   li.appendChild(editbtn);
+   
+   
 
     
         
