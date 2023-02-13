@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="my-form">
+    <h1>WELLCOME TO EXPENSE TRACKER</h1>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Choose expenseamount </span>
+          <span class="input-group-text">0.00</span>
+        
+        <input type="text" id="money" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+        <span class="input-group input-group-sm mb-3"></span>
+            <span class="input-group-prepend"></span>
+              <span class="input-group-text" id="inputGroup-sizing-sm">Choose description</span>
+            
+            <input type="text" id="description" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        
+            <span class="input-group-prepend"></span>
+              <label class="input-group-text" for="inputGroupSelect01"> Choose a category </label>
+            
+            <select class="custom-select" id="inputGroupSelect01">
+              <option selected>Choose...</option>
+              <option value="Food">Food</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Other">Other</option>
+              
+              
+              <input class="btn" type="submit" value= " Add amount">
+              
+            </select>
+          </div>          
+        </div>
+    </div>
+    </div>
+    
+        <ul id="users"></ul>
+  
+         <ul class="items">
+          
+          
+        </ul>
+ </form>
+ <script src="expense.js"></script>
+
+</body>
+</html>
