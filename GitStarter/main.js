@@ -53,6 +53,26 @@ const delet =document.getElementById("users");
 const edit =document.getElementById("users");
 myForm.addEventListener('submit',onsubmit);
 
+window.addEventListener("DOMContentLoaded",()=>{
+    axios.get("https://crudcrud.com/api/dfbbbc1ba1a34acf8adc8084c8c350b9/appointmentData")
+    .then((respone) => {
+        console.log(respone);
+        for (let index = 0; index < respone.data.length; index++) {
+            
+            showOutput(respone.data[index]);
+            
+        }
+        
+        
+    }).catch((err) => {
+        console.log("error");
+        
+    });
+    
+
+
+})
+
 
 
 function onsubmit(e){
@@ -66,7 +86,7 @@ function onsubmit(e){
         email
 
     }
-    axios.post("https://crudcrud.com/api/1c9bd6588cf34795aab6c6ab1f7955af/appointmentData",obj)
+    axios.post("https://crudcrud.com/api/dfbbbc1ba1a34acf8adc8084c8c350b9/appointmentData",obj)
     .then((respone) => {
         
         console.log(respone);
@@ -75,6 +95,7 @@ function onsubmit(e){
         document.body.innerHTML=document.body.innerHTML + "<h1>Somthing Went Worng</h1>"
     });
     showOutput(obj);
+}
 
     //localStorage.setItem(  'name',name.value);
     
@@ -164,7 +185,7 @@ function onsubmit(e){
     
     
     
- }
+ 
 
  
  
