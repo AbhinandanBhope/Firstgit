@@ -50,9 +50,9 @@
 
 var itemList =document.querySelector('#items');
 //parentElement
-console.log(itemList.parentNode);
-itemList.parentNode.style.backgroundColor = '#f4f4f4';
-console.log(itemList.parentNode.parentNode.parentNode);
+//console.log(itemList.parentNode);
+//itemList.parentNode.style.backgroundColor = '#f4f4f4';
+//console.log(itemList.parentNode.parentNode.parentNode);
 
 //parentElement
 console.log(itemList.parentElement);
