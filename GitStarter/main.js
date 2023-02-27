@@ -57,20 +57,38 @@ myForm.addEventListener('submit',onsubmit);
 
 function onsubmit(e){
     e.preventDefault();
-    let name = document.getElementById('name');
-    localStorage.setItem(  'name',name.value);
-    let email = document.getElementById('email');
-    localStorage.setItem('email1',email.value);
+    let name = document.getElementById('name').value;
+    let email = document.getElementById('email').value;
+
+    
+    const obj={
+        name,
+        email
+
+    }
+    axios.post("https://crudcrud.com/api/1c9bd6588cf34795aab6c6ab1f7955af/appointmentData",obj)
+    .then((respone) => {
+        
+        console.log(respone);
+        
+    }).catch((err) => {
+        document.body.innerHTML=document.body.innerHTML + "<h1>Somthing Went Worng</h1>"
+    });
+    showOutput(obj);
+
+    //localStorage.setItem(  'name',name.value);
+    
+    //localStorage.setItem('email1',email.value);
    //let one= document.getElementById('1');
    
-   var nameA = document.getElementById('name').value;
+   //var nameA = document.getElementById('name').value;
    
-   var  emailA= document.getElementById('email').value;
-   var li =document.createElement('li');
-   li.className ='items';
-   const iTEMMS=document.createTextNode(nameA);
-   const emailB =document.createTextNode(" email= "+emailA);
-   const deletebtn =document.createElement('button');
+   //var  emailA= document.getElementById('email').value;
+   //var li =document.createElement('li');
+   //li.className ='items';
+   //const iTEMMS=document.createTextNode(nameA);
+   //const emailB =document.createTextNode(" email= "+emailA);
+   //const deletebtn =document.createElement('button');
 
    
    
@@ -78,60 +96,83 @@ function onsubmit(e){
    
 
 
-   const editbtn = document.createElement('button');
-   editbtn.appendChild(document.createTextNode('Edit'));
+   //const editbtn = document.createElement('button');
+   //editbtn.appendChild(document.createTextNode('Edit'));
 
     
      
-   deletebtn.appendChild(document.createTextNode('Delete'));
+   //deletebtn.appendChild(document.createTextNode('Delete'));
    
 
 
-   li.appendChild(iTEMMS);
-   li.appendChild(emailB);
+  // li.appendChild(iTEMMS);
+   //li.appendChild(emailB);
    
-   
-   
- delet.onclick=(e) => {
-    console.log('hhh');
-    
+   function showOutput(obj) {
+    let objectall = JSON.stringify(obj);
+    var li = document.createElement('li');
+      childElem = obj.name+ "-"+ obj.email;
+      const iTEMMS=document.createTextNode(childElem);
+      const deletebtn =document.createElement('button');
+      const editbtn = document.createElement('button');
 
-    
-    const parent = document.getElementById('users');
-    parent.removeChild(li);
-
-    
-    
-
-    
-    localStorage.removeItem("email1");
-    localStorage.removeItem("name");
-
-    
-
-    
- }
-
- edit.onclick=() => {
-
-
-    const parent = document.getElementById('users');
-    parent.removeChild(li);
-    
-
-    
-    localStorage.removeItem("email1");
-    localStorage.removeItem("name");
-
-
-
- }
- 
+   editbtn.appendChild(document.createTextNode('Edit'));
+    deletebtn.appendChild(document.createTextNode('Delete'));
+    li.appendChild(iTEMMS);
     users.appendChild(li);
    li.appendChild(deletebtn);
    li.appendChild(editbtn);
+    
+    deletebtn.onclick=(e) => {
+        console.log('hhh');
+         
+          
+   document.getElementById('email').value="";
+        
+    
+   document.getElementById('name').value =" ";
+        const parent = document.getElementById('users');
+        parent.removeChild(li);
+    
+    } 
+
+    editbtn.onclick=(e) => {
+
+
+        const parent = document.getElementById('users');
+        parent.removeChild(li);
+        
+        
+    
+        
+        //localStorage.removeItem("email1");
+        //localStorage.removeItem("name");
+    
+    
+    
+     } 
+
+    
+    
+    console.log(obj);
+
+
+    
+    //localStorage.removeItem("email1");
+    //localStorage.removeItem("name");
+
+    
+    
+    
+ }
+
+ 
+ 
+   //users.appendChild(li);
+   //li.appendChild(deletebtn);
+   //li.appendChild(editbtn);
    
-   
+}
 
     
         
@@ -141,5 +182,5 @@ function onsubmit(e){
 
 
 
-};
+;
 
